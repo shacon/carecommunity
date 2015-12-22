@@ -1,0 +1,26 @@
+{% extends 'caretaker/base.html' %}
+
+{% block content%}
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+
+
+
+<body>
+<form method="post">
+{% csrf_token %}
+<div class="block-body">
+<p><label for="id_email">Email:</label>{{ form.email }}</p>
+<p><label for="id_password">Password:</label>{{ form.password }}</p>
+
+
+<button type="submit" class="login btn btn-default">Log in</button>
+</div>
+</form>
+
+</body>
+
+
+{% endblock %}
