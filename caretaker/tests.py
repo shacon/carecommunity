@@ -49,6 +49,9 @@ class TestSignup(HttpCodeTestCase, FormValidationTestCase):
 
 
 class TestLogin(HttpCodeTestCase, FormValidationTestCase):
+    def setUp(self):
+	self.user = Caregiver.objects.create_user(email='jess@jones.com', first_name='jess', last_name='jones', password='password')
+
     def form_params(self):
         return {'email': 'jess@jones.com',
                 'password': 'helloworld1'}
@@ -59,7 +62,6 @@ class TestLogin(HttpCodeTestCase, FormValidationTestCase):
 
     def test_user_loggedin(self):
 
-    	user = Caregiver.objects.create_user(email='jess@jones.com', first_name='jess', last_name='jones', password='password')
         params = self.form_params()
 	expected_email = params['email']
 	response = self.client.post(
