@@ -23,11 +23,15 @@
     {% endif %}
   </head>
   <body>
-{% if user.is_authenticated %}
-  <p>Welcome, {{ user.first_name }}. Thanks for logging in.</p>
-{% else %}
-  <p>Welcome. Please log in.</p>
-{% endif %}
+
+      {% if user.is_authenticated %}
+        <div id="greeting"><p>Welcome, {{ user.first_name }}. Thanks for logging in.</p></div>
+      {% else %}
+        <div id="greeting"><p>Welcome. Please log in.</p></div>
+      {% endif %}
+
+
+
     {% block content %}
     {% endblock %}
   </body>

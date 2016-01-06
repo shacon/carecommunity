@@ -2,10 +2,25 @@
 
 {% block content%}
 <div class="page-header">   
-<p> This page shows the form and the list of clients/loved ones </p>
+<p> {{user}} </p>
 </div>
+     {% if client  %}
+  
+        {% for clients in client %}
+          <p id="client-list">{{ clients.nickname }}</p>
+        {% endfor %}
+         {% else%}
+       <p> There are no clients. Create One</p>
+     {% endif %}
 
 
-
-
+     
 {% endblock %}
+
+
+
+
+
+
+
+

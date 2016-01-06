@@ -1,8 +1,13 @@
-
+#client-list {
+  background-color:white;
+}
+#greeting {
+    color:#FF00FF;
+}
 .page-header {
     font-family: News Cycle;
-    text-align: center;  
-    font-size: 200%;   
+    text-align: center;
+    font-size: 200%;
 }
 
 p {
@@ -19,7 +24,6 @@ input[type=text], input[type=password], input[type=email]{
     display: inline-block;
     margin: 0;
 }
-
 
 .btn {
 	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -72,7 +76,7 @@ label {
     font-family: News Cycle;
      }
 
-.block-body {    
+.block-body {
    text-align: center;
 }
 

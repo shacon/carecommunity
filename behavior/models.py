@@ -5,7 +5,7 @@ class Behavior(models.Model):
     client = models.ManyToManyField(Client)
     description = models.TextField()
     is_positive = models.BooleanField(default=False)
-    second_field = models.CharField(max_length=80)
+    #second_field = models.CharField(max_length=80)
     published_date = models.DateTimeField(blank=True, null=True)
     antecedent_text = models.TextField(blank=True, null=True)
     consequence_text = models.TextField(blank=True, null=True)
@@ -18,7 +18,7 @@ class Behavior(models.Model):
 
 
 class Intervention(models.Model):
-    behavior = models.ManyToManyField(Behavior)
+    behavior = models.ForeignKey(Behavior, null=True, blank=True)
     intervention_text = models.TextField()
     published_date = models.DateTimeField(
             blank=True, null=True)
