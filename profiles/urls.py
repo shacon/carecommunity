@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
 	url(r'^profiles_list', views.profiles_list, name='profiles_list'),
-	url(r'^profile/(?P<id>[0-9]+)', views.individual_profile, name='individual_profile'),
+	url(r'^inividual_profile/(?P<client_id>\D+)', views.individual_profile, name='individual_profile'),
 
 
 ]

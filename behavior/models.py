@@ -4,12 +4,10 @@ from profiles.models import Client
 class Behavior(models.Model):
     client = models.ManyToManyField(Client)
     description = models.TextField()
-    is_positive = models.BooleanField(default=False)
-    #second_field = models.CharField(max_length=80)
+    is_positive = models.BooleanField()
     published_date = models.DateTimeField(blank=True, null=True)
     antecedent_text = models.TextField(blank=True, null=True)
     consequence_text = models.TextField(blank=True, null=True)
-
 
     def publish(self):
     	self.published_date = time_zone.now()
