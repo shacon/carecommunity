@@ -1,7 +1,40 @@
 {% extends 'caretaker/base.html' %}
 
 {% block content%}
-<div class="page-header">
-<p> This is the ind profile page </p>
+	 {% if client %}
+ 	 <div class="page-header">
+	  <p>{{ client.nickname  }}</p>
+	</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-6">
+      <h3>Positive Behaviors</h3>
+      <div class="well" id="left-well">
+        {% for pos_beh in pos_behaviors %}
+         <div>
+        <h4 class="short-description">{{ pos_beh.description|truncatewords:20 }}</h4> 
+        <h4 class="full-description"> {{ pos_beh.description}}</h4>
+        <button class="btn btn-default show" >Show More</button>
+         </div>
+         {% endfor %}
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <h3> Challenging Behaviors</h3>
+      <div class="well" id="right-well">
+        {% for neg_beh in neg_behaviors %}
+ 		<div>
+        <h4 class="short-description">{{ neg_beh.description|truncatewords:20 }}</h4>
+		<h4 class="full-description"> {{ neg_beh.description}}</h4>
+        <button class="btn btn-default show" >Show More</button>
+        </div>
+         {% endfor %}
+      </div>
+    </div>
+  </div>
 </div>
+	{% endif %}
+
+
+
 {% endblock %}

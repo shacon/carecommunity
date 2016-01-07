@@ -6,11 +6,24 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=News+Cycle" />
     <link rel="stylesheet" href="{% static 'css/caretaker.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+
+          $("h4.full-description").hide();
+
+         $(".show").on("click", function(event){
+          debugger;
+              $(event.target).siblings(".short-description").hide();
+              $(event.target).siblings(".full-description").show();
+          });
+    });
+    </script>
    {% if user.is_authenticated %}
     <ul>
       <li><a href="/">Home</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/account/logout">Log out</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'logout' %}">Log out</a></li>
       <li><a href="{% url 'profiles_list' %}">Profile</a></li>
     </ul>
     {% else %}
@@ -18,7 +31,8 @@
       <li><a href="/">Home</a></li>
       <li><a href="{% url 'about' %}">About</a></li>
       <li><a href="{% url 'login' %}">Log in</a></li>
-      <li><a href="/account/signup">Sign up</a></li>
+      <li><a href="{% url 'signup'%}">Sign up</a></li>
+      <li><a href="/"> Demo</a></li>
     </ul>
     {% endif %}
   </head>

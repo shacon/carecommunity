@@ -1,13 +1,13 @@
 {% extends 'caretaker/base.html' %}
 
 {% block content%}
-<div class="page-header">   
-<p> {{user}} </p>
-</div>
+
      {% if client  %}
-  
+        <div class="page-header"><p>My Clients</p></div> 
         {% for clients in client %}
-          <p id="client-list">{{ clients.nickname }}</p>
+          <div id="client-list">
+          <a href="{% url 'individual_profile' clients.nickname %}"><h4>{{ clients.nickname }}</h4></a> 
+          </div> 
         {% endfor %}
          {% else%}
        <p> There are no clients. Create One</p>
