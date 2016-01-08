@@ -2,12 +2,12 @@ from django.db import models
 from profiles.models import Client
 
 class Behavior(models.Model):
-    client = models.ManyToManyField(Client)
+    client = models.ForeignKey(Client)
     description = models.TextField()
     is_positive = models.BooleanField()
-    published_date = models.DateTimeField(blank=True, null=True)
-    antecedent_text = models.TextField(blank=True, null=True)
-    consequence_text = models.TextField(blank=True, null=True)
+    published_date = models.DateTimeField(null=True)
+    antecedent_text = models.TextField(blank=True)
+    consequence_text = models.TextField(blank=True)
 
     def publish(self):
     	self.published_date = time_zone.now()
@@ -16,8 +16,8 @@ class Behavior(models.Model):
 
 
 class Intervention(models.Model):
-    behavior = models.ForeignKey(Behavior, null=True, blank=True)
+    behavior = models.ForeignKey(Behavior)
     intervention_text = models.TextField()
     published_date = models.DateTimeField(
-            blank=True, null=True)
+             null=True)
 

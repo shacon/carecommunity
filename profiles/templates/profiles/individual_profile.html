@@ -11,7 +11,7 @@
       <h3>Positive Behaviors</h3>
       <div class="well" id="left-well">
         {% for pos_beh in pos_behaviors %}
-         <div>
+         <div class="descriptions">
         <h4 class="short-description">{{ pos_beh.description|truncatewords:20 }}</h4> 
         <h4 class="full-description"> {{ pos_beh.description}}</h4>
         <button class="btn btn-default show" >Show More</button>
@@ -23,7 +23,7 @@
       <h3> Challenging Behaviors</h3>
       <div class="well" id="right-well">
         {% for neg_beh in neg_behaviors %}
- 		<div>
+ 		<div class="descriptions">
         <h4 class="short-description">{{ neg_beh.description|truncatewords:20 }}</h4>
 		<h4 class="full-description"> {{ neg_beh.description}}</h4>
         <button class="btn btn-default show" >Show More</button>

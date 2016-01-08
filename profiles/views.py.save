@@ -1,0 +1,22 @@
+from django.shortcuts import render
+
+def profiles_list(request):
+	user = request.user
+        #check id of user
+	if user.is_authenticated:
+		#if id matches
+		#show profile template with list of profiles and option to create new 
+		pass
+		#if id does not match: show error
+	#else show log in form with message : need to log in
+	pass
+
+def individual_profile(request, id):
+	user = request.user
+	if user.is_authenticated and id == request.user.id:
+		
+pass
+	else:
+		pass
+	
+
