@@ -8,6 +8,11 @@
     text-align: center;
 }
 
+.col-xs-6 {
+    font-family: News Cycle;
+
+}
+
 .well {
     background-image: linear-gradient(to bottom, #FFF8DC 0px, #F5F5F5 100%);
 }

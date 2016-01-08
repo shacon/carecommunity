@@ -24,5 +24,6 @@ def individual_profile(request, client_id):
     context_dict = {'client':client, 'neg_behaviors':neg_behaviors, 'pos_behaviors':pos_behaviors}
     return render_to_response('profiles/individual_profile.html', context_dict, context)
 
-
+def search(request):
+    return render(request, 'profiles/search.html', {})
 
