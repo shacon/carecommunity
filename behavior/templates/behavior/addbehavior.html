@@ -1,0 +1,15 @@
+{% extends 'caretaker/base.html' %}
+
+
+{% block content%}
+<div class="page-header">
+<p>Add a new behavior here</p>
+</div>
+   <div class="errors">{{ errors }}</div>
+   <div class="block-body">
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_table }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+    </div>
+{% endblock %}

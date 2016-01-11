@@ -17,8 +17,7 @@
 }
 
 .well {
- /*   #fdedec
-    #F5F5F5*/
+
     background-image: linear-gradient(to bottom, #F9EDFC 0px, #FDFEFE  100%);
 }
 .page-header {
@@ -89,7 +88,10 @@ input[type=text], input[type=password], input[type=email]{
 	position:relative;
 	top:1px;
 }
-
+.add {
+    width:20em;
+    height:2em;
+}
 
 label {
     display: inline-block;
