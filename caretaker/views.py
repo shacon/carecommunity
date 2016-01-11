@@ -20,7 +20,7 @@ def signup(request):
             Caregiver.objects.create_user(email, password, form.cleaned_data['first_name'], form.cleaned_data['last_name'])
             user = authenticate(email=email, password=password)
             auth_login(request, user)
-            return HttpResponseRedirect('/thanks.html')
+            return render(request, 'registration/thanks.html', {})
         else:
             return render(request, 'registration/signup.html', {'form': form, 'errors': "Something went wrong"})
     else:
