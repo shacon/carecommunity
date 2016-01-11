@@ -10,12 +10,20 @@
     <script>
     $(document).ready(function(){
 
-          $("h4.full-description").hide();
+          $(".full-description").hide();
 
          $(".show").on("click", function(event){
-          debugger;
-              $(event.target).siblings(".short-description").hide();
-              $(event.target).siblings(".full-description").show();
+              var text = $(event.target).text()
+              if (text === "Show More") {
+                $(event.target).siblings(".short-description").hide();
+                $(event.target).siblings(".full-description").show();
+                $(event.target).text('Show Less');
+              }
+              else {
+                $(event.target).siblings(".short-description").show();
+                $(event.target).siblings(".full-description").hide();
+                $(event.target).text('Show More');
+              };
           });
     });
     </script>

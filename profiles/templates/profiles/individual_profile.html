@@ -3,12 +3,12 @@
 {% block content%}
 	 {% if client %}
  	 <div class="page-header">
-	  <p>{{ client.nickname  }}</p>
+	  <p>{{ client.nickname|capfirst  }}</p>
 	</div>
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-6">
-      <h3>Positive Behaviors</h3>
+      <h3>{{ client.nickname|capfirst  }}'s Strengths and Positive Habits</h3>
       <div class="well" id="left-well">
         {% for pos_beh in pos_behaviors %}
          <div class="descriptions">
@@ -20,12 +20,16 @@
       </div>
     </div>
     <div class="col-xs-6">
-      <h3> Challenging Behaviors</h3>
+      <h3>{{ client.nickname|capfirst  }}'s Challenging Behaviors</h3>
       <div class="well" id="right-well">
         {% for neg_beh in neg_behaviors %}
  		<div class="descriptions">
         <h4 class="short-description">{{ neg_beh.description|truncatewords:20 }}</h4>
-		<h4 class="full-description"> {{ neg_beh.description}}</h4>
+		<div class="full-description"> 
+            <h4> <strong>BEHAVIOR:</strong> {{ neg_beh.description}} </h4>
+            <h4> <strong>ANTECEDENT:</strong>{{ neg_beh.antecedent_text}}</h4>
+            <h4> <strong>CONSEQUENCE:</strong> {{ neg_beh.consequence_text }} </h4> 
+        </div>
         <button class="btn btn-default show" >Show More</button>
         </div>
          {% endfor %}

@@ -12,9 +12,14 @@
     font-family: News Cycle;
 
 }
+.search-form {
+    text-align: center;
+}
 
 .well {
-    background-image: linear-gradient(to bottom, #FFF8DC 0px, #F5F5F5 100%);
+ /*   #fdedec
+    #F5F5F5*/
+    background-image: linear-gradient(to bottom, #F9EDFC 0px, #FDFEFE  100%);
 }
 .page-header {
     font-family: News Cycle;

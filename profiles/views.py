@@ -5,6 +5,7 @@ from behavior.models import Behavior
 from django.contrib.auth import authenticate
 from django.template import RequestContext
 
+
 def profiles_list(request):
     context = RequestContext(request)
     user = request.user
@@ -25,5 +26,12 @@ def individual_profile(request, client_id):
     return render_to_response('profiles/individual_profile.html', context_dict, context)
 
 def search(request):
-    return render(request, 'profiles/search.html', {})
+    if 'q' in request.GET and request.GET['q']:
+        q = request.GET['q']
+        behaviors = Behavior.objects.filter(description__icontains=q)
+        return render(request, 'profiles/search.html',
+            {'behaviors': behaviors, 'query': q})
+    else:
+        return render(request, 'profiles/search.html')
+ 
 

@@ -31,7 +31,3 @@ class Caregiver(AbstractBaseUser, PermissionsMixin):
 	return self.first_name
 
 
-# class Profile(models.Model):
-#     caregiver = models.ForeignKey(Caregiver)
-#     problem_behaviors = models.TextField()
-#     strengths = models.TextField()
