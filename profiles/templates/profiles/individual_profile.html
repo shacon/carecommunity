@@ -13,7 +13,11 @@
         {% for pos_beh in pos_behaviors %}
          <div class="descriptions">
         <h4 class="short-description">{{ pos_beh.description|truncatewords:20 }}</h4> 
-        <h4 class="full-description"> {{ pos_beh.description}}</h4>
+        <div class="full-description"> 
+         <h4> <strong>BEHAVIOR:</strong> {{ pos_beh.description}} </h4>
+         <h4> <strong>ANTECEDENT:</strong>{{ pos_beh.antecedent_text}}</h4>
+         <h4> <strong>CONSEQUENCE:</strong> {{ pos_beh.consequence_text }} </h4> 
+        </div>
         <button class="btn btn-default show" >Show More</button>
          </div>
          {% endfor %}
