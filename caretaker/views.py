@@ -28,6 +28,7 @@ def signup(request):
         return render(request, 'registration/signup.html', {'form': form})
 
 def login(request):
+    form = Login()
     if request.method == 'POST':
         email = request.POST.get('email', '')
         password = request.POST.get('password', '')
@@ -37,11 +38,10 @@ def login(request):
                 auth_login(request, user)
                 return HttpResponseRedirect('/')
             else:
-                return HttpResponseRedirect("/")
+                return render(request, 'registration/login.html', {'form': form, 'errors': "Your account appears to be inactive"})
         else:
-            return HttpResponseRedirect("/")
+            return render(request, 'registration/login.html', {'form': form, 'errors': "Looks like you haven't signed up yet."})
     else:
-        form = Login()
         return render(request, 'registration/login.html', {'form':form})
 
 def logout(request):
