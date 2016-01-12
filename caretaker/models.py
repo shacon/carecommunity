@@ -4,17 +4,16 @@ from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser, PermissionsMixin
 )
 
-
 class CaregiverManager(BaseUserManager):
-    def create_user(self, email, password, first_name, last_name):
+    def create_user(self, email, password, first_name="", last_name=""):
         email = self.normalize_email(email)
         user = self.model(email=email, first_name=first_name, last_name=last_name, is_admin=False, is_active=True)
         user.set_password(password)
         user.save()
         return user
 
-    def create_superuser(self, email, password, first_name, last_name):
-        user = self.create_user(email, password, first_name, last_name)
+    def create_superuser(self, email, password):
+        user = self.create_user(email, password)
         user.is_admin = True
         user.save()
         return user
