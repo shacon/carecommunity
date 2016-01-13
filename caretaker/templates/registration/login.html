@@ -9,16 +9,16 @@
 
 
 <body>
-<form method="post">
-{% csrf_token %}
-<div class="block-body">
-<p><label for="id_email">Email:</label>{{ form.email }}</p>
-<p><label for="id_password">Password:</label>{{ form.password }}</p>
+    <form method="post">
+    {% csrf_token %}
+    <div class="block-body">
+        <p><label for="id_email">Email:</label>{{ form.email }}</p>
+        <p><label for="id_password">Password:</label>{{ form.password }}</p>
 
 
-<button type="submit" class="login btn btn-default">Log in</button>
-</div>
-</form>
+        <button type="submit" class="login btn btn-default">Log in</button>
+    </div>
+    </form>
 
 </body>
 

@@ -105,6 +105,7 @@ label {
 
 .block-body {
    text-align: center;
+   padding-top: 1em;
 }
 
 li a:hover {
