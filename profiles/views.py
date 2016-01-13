@@ -40,7 +40,6 @@ def addclient(request):
         if form.is_valid():
             nickname = form.cleaned_data['nickname']
             Client.objects.create(caregiver=user, nickname=nickname)
-            user = request.user
             client_list = user.client_set.all()
             context = {'client': client_list}
             return render(request, 'profiles/profiles_list.html', context)
