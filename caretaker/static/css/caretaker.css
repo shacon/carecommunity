@@ -90,7 +90,8 @@ input[type=text], input[type=password], input[type=email]{
 }
 .add {
     width:20em;
-    height:2em;
+    height:3em;
+
 }
 
 label {

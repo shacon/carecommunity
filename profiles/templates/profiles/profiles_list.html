@@ -3,18 +3,20 @@
 {% block content%}
 
      {% if client  %}
-        <div class="page-header"><p>My Clients</p></div> 
+        <div class="page-header"><p>My Clients</p></div>
         {% for clients in client %}
           <div id="client-list">
-          <a href="{% url 'individual_profile' clients.nickname %}"><h4>{{ clients.nickname }}</h4></a> 
-          </div> 
+          <a href="{% url 'individual_profile' clients.id %}"><h4>{{ clients.nickname }}</h4></a>
+          </div>
         {% endfor %}
          {% else%}
-       <p> There are no clients. Create One</p>
+       <p> There are no clients. Create One </p>
      {% endif %}
+     <div class="page-header">
+    <a href="{% url 'addclient' %}" class="btn btn-default add"><h4> Add a new Client</h4></a>
+     </div>
 
 
-     
 {% endblock %}
 
 

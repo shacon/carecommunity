@@ -17,3 +17,4 @@ def addbehavior(request):
         form = AddBehavior()
         return render(request, 'behavior/addbehavior.html', {'form': form})
 
+
