@@ -1,5 +1,6 @@
 from django.db import models
 from profiles.models import Client
+from django.utils import timezone
 
 class Behavior(models.Model):
     client = models.ForeignKey(Client)
@@ -10,7 +11,7 @@ class Behavior(models.Model):
     consequence_text = models.TextField(blank=True)
 
     def publish(self):
-    	self.published_date = time_zone.now()
+    	self.published_date = timezone.now()
     	self.save()
         objects = models.Manager()
 

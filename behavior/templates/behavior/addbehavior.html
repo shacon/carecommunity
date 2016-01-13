@@ -8,8 +8,11 @@
    <div class="errors">{{ errors }}</div>
    <div class="block-body">
     <form method="POST" class="post-form">{% csrf_token %}
+       <table align="center">
         {{ form.as_table }}
+        </table>
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
     </div>
 {% endblock %}
+

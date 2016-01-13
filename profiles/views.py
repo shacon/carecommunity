@@ -5,6 +5,7 @@ from behavior.models import Behavior
 from django.contrib.auth import authenticate
 from django.template import RequestContext
 from .forms import AddClient
+from behavior.forms import AddBehavior
 
 def profiles_list(request):
     user = request.user
@@ -48,6 +49,44 @@ def addclient(request):
     else:
         form = AddClient()
         return render(request, 'profiles/addclient.html', {'form': form})
+
+
+def add_pos_behavior(request, client_id):
+    client = Client.objects.get(id=client_id)
+    if request.method == 'POST':
+        form = AddBehavior(request.POST)
+        if form.is_valid():
+            positive_value = True
+            description = form.cleaned_data['description']
+            antecedent = form.cleaned_data['antecedent_text']
+            consequence = form.cleaned_data['consequence_text']
+            behavior = Behavior(client=client, description=description, antecedent_text=antecedent, consequence_text=consequence, is_positive=positive_value)
+            behavior.publish()
+            return render(request, 'profiles/profiles_list.html', {})
+        else:
+            return render(request, 'behavior/addbehavior.html', {'form': form, 'errors': "Something went wrong"})
+    else:
+        form = AddBehavior()
+        return render(request, 'behavior/addbehavior.html', {'form': form})
+
+def add_neg_behavior(request, client_id):
+    client = Client.objects.get(id=client_id)
+    if request.method == 'POST':
+        form = AddBehavior(request.POST)
+        if form.is_valid():
+            positive_value = False
+            description = form.cleaned_data['description']
+            antecedent = form.cleaned_data['antecedent_text']
+            consequence = form.cleaned_data['consequence_text']
+            behavior = Behavior(client=client, description=description, antecedent_text=antecedent, consequence_text=consequence, is_positive=positive_value)
+            behavior.publish()
+            message = {'message':"Behavior Successfully added"}
+            return render(request, 'caretaker/index.html', message)
+        else:
+            return render(request, 'behavior/addbehavior.html', {'form': form, 'errors': "Something went wrong"})
+    else:
+        form = AddBehavior()
+        return render(request, 'behavior/addbehavior.html', {'form': form})
 
 
 

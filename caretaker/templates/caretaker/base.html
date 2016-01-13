@@ -47,10 +47,8 @@
   </head>
   <body>
 
-      {% if user.is_authenticated %}
-        <div id="greeting"><p>Welcome, {{ user.first_name }}. Thanks for logging in.</p></div>
-      {% else %}
-        <div id="greeting"><p>Welcome. Please log in.</p></div>
+      {% if message %}
+        <div id="greeting"><p> {{ message }}</p></div>
       {% endif %}
 
 
