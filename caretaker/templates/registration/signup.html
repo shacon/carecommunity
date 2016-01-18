@@ -2,10 +2,10 @@
 
 
 {% block content%}
-<div class="page-header"> 
+<div class="page-header">
 <p>Sign up</p>
 </div>
-   <div class=errors">{{ errors }}</div>
+   <div class="errors">{{ errors }}</div>
    <div class="block-body">
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}

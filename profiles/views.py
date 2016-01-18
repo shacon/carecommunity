@@ -14,8 +14,8 @@ def profiles_list(request):
     if user.is_authenticated():
         return render(request, 'profiles/profiles_list.html', context)
     else:
-    #add message to user must sign in order to view profile
-        return render(request, 'registration/login.html', {})
+        message = {'message':"Sorry this didn't work. Could you log in?"}
+        return render(request, 'registration/login.html', message)
 
 def individual_profile(request, client_id):
     client = Client.objects.get(id=client_id)
@@ -62,7 +62,8 @@ def add_pos_behavior(request, client_id):
             consequence = form.cleaned_data['consequence_text']
             behavior = Behavior(client=client, description=description, antecedent_text=antecedent, consequence_text=consequence, is_positive=positive_value)
             behavior.publish()
-            return render(request, 'profiles/profiles_list.html', {})
+            message = {'message':"Behavior Successfully added"}
+            return render(request, 'caretaker/index.html', message)
         else:
             return render(request, 'behavior/addbehavior.html', {'form': form, 'errors': "Something went wrong"})
     else:

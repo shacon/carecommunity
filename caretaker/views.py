@@ -60,6 +60,7 @@ def thanks(request):
 def about(request):
     return render(request, 'caretaker/about.html', {})
 
-
+def demo(request):
+    return render(request, 'caretaker/demo.html', {})
 
 
