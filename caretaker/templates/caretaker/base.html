@@ -28,7 +28,8 @@
     });
     </script>
    {% if user.is_authenticated %}
-    <ul>
+
+    <ul class="nav">
       <li><a href="{% url 'search' %}">Search</a></li>
       <li><a href="/">Home</a></li>
       <li><a href="{% url 'about' %}">About</a></li>
@@ -36,13 +37,14 @@
       <li><a href="{% url 'profiles_list' %}">Profile</a></li>
     </ul>
     {% else %}
-    <ul>
+    <ul class="nav">
       <li><a href="/">Home</a></li>
       <li><a href="{% url 'about' %}">About</a></li>
       <li><a href="{% url 'login' %}">Log in</a></li>
       <li><a href="{% url 'signup'%}">Sign up</a></li>
       <li><a href="{% url 'demo' %}"> Demo</a></li>
     </ul>
+
     {% endif %}
   </head>
   <body>
